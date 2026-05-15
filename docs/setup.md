@@ -45,3 +45,13 @@ pyenv global system
 ```sh
 source venv/bin/activate
 ```
+# openai 설치
+```sh
+python -m pip install openai==1.58.1
+```
+
+# 실행하는 방법
+
+  - 가상환경 활성화:
+  - source venv/bin/activate
+  - python chap02/gpt_basic.py

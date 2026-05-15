@@ -39,3 +39,17 @@ RPM은 Requests Per Minute의 약자로, 1분당 요청 수입니다.
 ```
 
 하지만 TPM은 30,000이므로 실제로는 500회까지 못 가고 TPM 30,000에서 먼저 막힙니다.
+
+# temperature
+- temperature는 OpenAI API에서 AI 답변의 랜덤성 / 창의성 / 예측 가능성을 조절하는 값입니다.
+- temperature 낮음  → 답변이 안정적이고 일관적임
+- temperature 높음  → 답변이 다양하고 창의적이지만 흔들릴 수 있음
+- OpenAI 공식 API 문서 기준으로 temperature는 보통 0에서 2 사이의 숫자이며, 0.8처럼 높은 값은 출력을 더 랜덤하게 만들고, 0.2처럼 낮은 값은 더 집중되고 결정적인 답변을 만들도록 합니다. 또한 OpenAI는 일반적으로 temperature와 top_p 둘 중 하나만 조정하고 둘 다 동시에 바꾸지는 말라고 권장합니다.
+
+# system, user, assistant
+- system: gpt의 역할을 설정합니다.
+- user: 언어 모델과 대화를 나누는 사용자
+- assistant: 언어 모델이 제공하는 답변
+
+# 프롬프트 엔지니어링
+- 
