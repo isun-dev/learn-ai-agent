@@ -23,7 +23,7 @@ response = client.chat.completions.create(
     ]
 )
 
-print(response) # 꽥꽥! 오리는 물에서 헤엄치는 동물이에요. 귀엽고 노란 아기 오리도 있어요!
+print(response) # 쉬이이~
 
 print('----')
 print(response.choices[0].message.content)
