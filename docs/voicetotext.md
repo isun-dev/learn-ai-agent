@@ -11,3 +11,11 @@
 # 로컬에서 음성을 텍스트로 변환: 음성이 유출되면 안되는 경우
 - 허깅 페이스: 인공지능 모델을 개발하는 회사
 - https://huggingface.co/
+
+- pip install --upgrade pip
+- pip install --upgrade transformers 'datasets[audio]' accelerate
+- brew install ffmpeg
+
+# 파이토치()
+- https://pytorch.org/
+- pip3 install torch torchvision
