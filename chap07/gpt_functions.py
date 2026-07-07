@@ -7,6 +7,20 @@ def get_yf_stock_info(ticker: str):
     print(info)
     return str(info)
 
+def get_yf_stock_history(ticker: str, period: str):
+    stock = yf.Ticker(ticker)
+    history = stock.history(period=period)
+    history_md = history.to_markdown() # 데이터프레임을 마크다운 형식으로 변환
+    print(history_md)
+    return history_md
+
+def get_yf_stock_recommendations(ticker: str):
+    stock = yf.Ticker(ticker)
+    recommendations = stock.recommendations
+    recommendations_md = recommendations.to_markdown() # 데이터프레임을 마크다운 형식으로 변환
+    print(recommendations_md)
+    return recommendations_md
+
 tools = [
     {
         "type": "function",

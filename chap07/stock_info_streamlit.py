@@ -1,4 +1,6 @@
-from gpt_functions import  tools, get_yf_stock_info
+from gitdb import stream
+
+from gpt_functions import tools, get_yf_stock_info, get_yf_stock_history, get_yf_stock_recommendations
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -14,9 +16,12 @@ client = OpenAI(api_key=api_key)  # 오픈AI 클라이언트의 인스턴스 생
 def get_ai_response(messages, tools=None):
     response = client.chat.completions.create(
         model="gpt-4o",  # 응답 생성에 사용할 모델 지정
+        stream=True,
         messages=messages,  # 대화 기록을 입력으로 전달
         tools=tools,  # 사용 가능한 도구 목록 전달
     )
+
+
     return response  # 생성된 응답 내용 반환
 
 
@@ -48,7 +53,15 @@ if user_input := st.chat_input():  # 사용자 입력 받기
 
             if tool_name == "get_yf_stock_info":
                 func_result = get_yf_stock_info(ticker=arguments['ticker'])
-
+            elif tool_name == "get_yf_stock_history":  # get_yf_stock_history 함수 호출
+                func_result = get_yf_stock_history(
+                    ticker=arguments['ticker'],
+                    period=arguments['period']
+                )
+            elif tool_name == "get_yf_stock_recommendations":  # get_yf_stock_recommendations 함수 호출
+                func_result = get_yf_stock_recommendations(
+                    ticker=arguments['ticker']
+                )
 
             st.session_state.messages.append({
                 "role": "function",
